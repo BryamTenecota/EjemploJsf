@@ -1,0 +1,25 @@
+create table departamento(
+	id_departamento Integer auto_increment,
+	nombre varchar(100) not null,
+	primary key(id_departamento)
+);
+
+create table empleado(
+	id_empleado Integer auto_increment,
+	nombre varchar(100) not null,
+	id_departamento Integer not null,
+	primary key(id_empleado),
+	constraint fk_iddepartamento foreign key (id_departamento) references departamento(id_departamento)
+);
+
+insert into departamento values(1,'Bodega');
+insert into departamento values(2,'Ventas');
+insert into departamento values(3,'Redes');
+insert into departamento values(4,'Limpieza');
+insert into departamento values(5,'Comunicacion');
+
+insert into empleado values(1,'Bryam',1);
+insert into empleado values(2,'Juan',5);
+insert into empleado values(3,'Jose',2);
+insert into empleado values(4,'Luisa',3);
+insert into empleado values(5,'Marcela',4);
